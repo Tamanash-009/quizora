@@ -12,3 +12,5 @@ server_db.json
 *.tsbuildinfo
 .vscode/
 .idea/
+
+.vercel
