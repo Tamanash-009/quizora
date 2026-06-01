@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Dark Neo-Brutalist Aesthetic Rules - high contrast, bold 3px borders, thick raw offset shadows, neon highlights */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: transparent; /* transparent background to let html styles show! */
+    color: #0b0f19; /* B&W text default */
+  }
+
+  html {
+    background-color: #f8fafc; /* high contrast B&W light fallback */
+  }
+
+  html.dark, html.dark body {
+    background-color: transparent;
+    color: #e2e8f0;
+  }
+
+  body {
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(244, 63, 94, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px;
+    background-attachment: fixed;
+  }
+}
+
+/* Neo-Brutalist UI Core Components */
+.neo-card {
+  background-color: #ffffff;
+  color: #0b0f19;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dark .neo-card {
+  background-color: #161e2e;
+  color: #e2e8f0;
+}
+
+.neo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px #000000;
+  border-color: #000000;
+}
+
+.dark .neo-card:hover {
+  border-color: #ffffff;
+}
+
+/* Color Neon Overrides for unique category skins */
+.neo-card-yellow {
+  box-shadow: 4px 4px 0px 0px #facc15 !important;
+}
+.neo-card-yellow:hover {
+  box-shadow: 8px 8px 0px 0px #facc15 !important;
+}
+
+.neo-card-pink {
+  box-shadow: 4px 4px 0px 0px #f43f5e !important;
+}
+.neo-card-pink:hover {
+  box-shadow: 8px 8px 0px 0px #f43f5e !important;
+}
+
+.neo-card-indigo {
+  box-shadow: 4px 4px 0px 0px #6366f1 !important;
+}
+.neo-card-indigo:hover {
+  box-shadow: 8px 8px 0px 0px #6366f1 !important;
+}
+
+.neo-card-emerald {
+  box-shadow: 4px 4px 0px 0px #10b981 !important;
+}
+.neo-card-emerald:hover {
+  box-shadow: 8px 8px 0px 0px #10b981 !important;
+}
+
+/* Neo-Brutalist Button Style - feels satisfying & bouncy */
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #facc15; /* Default Neon Yellow Tint */
+  color: #000000;
+  font-weight: 800;
+  font-family: var(--font-sans);
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 18px;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.neo-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px #000000;
+  filter: brightness(1.05);
+}
+
+.neo-btn:active {
+  transform: translate(3px, 3px) scale(0.97);
+  box-shadow: 1px 1px 0px 0px #000000;
+}
+
+.neo-btn-pink {
+  background-color: #f43f5e;
+  color: #ffffff;
+}
+
+.neo-btn-indigo {
+  background-color: #6366f1;
+  color: #ffffff;
+}
+
+.neo-btn-emerald {
+  background-color: #10b981;
+  color: #000000;
+}
+
+.neo-btn-secondary {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #000000;
+}
+
+/* Form Controls with Neo-Brutalist Borders */
+input, select, textarea {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  border-radius: 10px !important;
+  color: #000000 !important;
+  font-family: var(--font-sans) !important;
+  padding: 10px 14px !important;
+  font-size: 0.825rem !important;
+  transition: all 0.15s ease !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+}
+
+.dark input, .dark select, .dark textarea {
+  background-color: #1f2a3d !important;
+  color: #ffffff !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none !important;
+  border-color: #facc15 !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
+/* Emoji badges & Vibe pill design */
+.vibe-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: #facc15;
+  color: #000000;
+  padding: 4px 8px;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0px 0px #000000;
+  border-radius: 6px;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bounceHorizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-bounce-horizontal {
+  animation: bounceHorizontal 1.4s infinite;
+}
+
+/* Backward-compatible classes for easy integration without breaking layout variables */
+.frosted-glass,
+.glass-panel {
+  background-color: #161e2e !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+  border-radius: 16px !important;
+  backdrop-filter: none !important;
+  transition: all 0.2s ease;
+}
+
+.frosted-glass:hover,
+.glass-panel:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 8px 8px 0px 0px #000000 !important;
+  border-color: #facc15 !important;
+}
+
+.dark .frosted-glass,
+.dark .glass-panel {
+  background-color: #161e2e !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
+/* Quick static replacements for simple color blocks */
+.bg-white\/5 {
+  background-color: #111827 !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 3px 3px 0px 0px #000000 !important;
+  border-radius: 12px;
+}
+.bg-white\/5:hover {
+  border-color: #6366f1 !important;
+}
+.dark .bg-white\/5 {
+  background-color: #111827 !important;
+  border: 3px solid #000000 !important;
+}
+
