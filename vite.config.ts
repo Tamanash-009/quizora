@@ -11,10 +11,15 @@ export default defineConfig(() => {
       tailwindcss(),
       VitePWA({
         registerType: 'autoUpdate',
+        injectRegister: 'auto',
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+        },
         includeAssets: ['favicon.ico', 'icon-192.svg', 'icon-512.svg'],
         manifest: {
           name: 'Quizora | AI Multiplayer Arena',
           short_name: 'Quizora',
+          start_url: '/',
           description: 'Procedurally generated AI quizzes and real-time multiplayer arenas.',
           theme_color: '#fdfb23',
           background_color: '#000000',
