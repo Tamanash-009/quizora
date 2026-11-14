@@ -17,7 +17,7 @@ import Leaderboard from './components/Leaderboard';
 import Scoreboard from './components/Scoreboard';
 import { AboutView, ContactView, ReviewsView, PrivacyView, TermsView } from './components/AboutContactReviews';
 import VentureStartupSuite from './components/VentureStartupSuite';
-import PwaInstallPrompt from './components/PwaInstallPrompt';
+import { PwaInstallPrompt } from './components/PwaInstallPrompt';
 
 export default function App() {
   // Session states
