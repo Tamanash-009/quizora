@@ -781,7 +781,7 @@ export default function App() {
           </div>
         </div>
       )}
-      {renderView()}
+      
     <PwaInstallPrompt />
   </div>
 );
